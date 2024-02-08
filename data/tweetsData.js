@@ -1,4 +1,4 @@
-export const tweets = [
+export const tweetsData = [
     {
         author: {
             name: "Aram Miquel",
