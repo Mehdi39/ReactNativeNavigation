@@ -22,17 +22,19 @@ const CustomeButton = ({ handlePress, buttonVal }) => {
             ['#fd94b2', '#f8dac2', '#154f40', '#f8dac2']
         )
 
-        return backgroundColor;
+        return {
+            backgroundColor: backgroundColor,
+        }
     })
 
     const buttonAnimationStyle = useAnimatedStyle(() => {
         return {
             width:
-                buttonVal.value === 2 * SCREEN_HEIGHT
+                buttonVal.value === 3 * SCREEN_HEIGHT
                     ? withSpring(260)
                     : withSpring(120),
             height:
-                buttonVal.value === 2 * SCREEN_HEIGHT
+                buttonVal.value === 3 * SCREEN_HEIGHT
                     ? withSpring(80)
                     : withSpring(120),
         }
@@ -43,11 +45,11 @@ const CustomeButton = ({ handlePress, buttonVal }) => {
             width: 50,
             height: 50,
             opacity:
-                buttonVal.value === 2 * SCREEN_HEIGHT ? withTiming(0) : withTiming(1),
+                buttonVal.value === 3 * SCREEN_HEIGHT ? withTiming(0) : withTiming(1),
             transform: [
                 {
                     translateX:
-                        buttonVal.value === 2 * SCREEN_HEIGHT
+                        buttonVal.value === 3 * SCREEN_HEIGHT
                             ? withTiming(100)
                             : withTiming(0)
                 }
@@ -58,11 +60,11 @@ const CustomeButton = ({ handlePress, buttonVal }) => {
     const textAnimationStyle = useAnimatedStyle(() => {
         return {
             opacity:
-                buttonVal.value === 2 * SCREEN_HEIGHT ? withTiming(1) : withTiming(0),
+                buttonVal.value === 3 * SCREEN_HEIGHT ? withTiming(1) : withTiming(0),
             transform: [
                 {
                     translateX:
-                        buttonVal.value === 2 * SCREEN_HEIGHT
+                        buttonVal.value === 3 * SCREEN_HEIGHT
                             ? withTiming(0)
                             : withTiming(-100)
                 }

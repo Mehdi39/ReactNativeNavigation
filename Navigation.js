@@ -13,7 +13,7 @@ import Auth from './screens/Auth';
 
 // Tab Bottom
 const Tab = createBottomTabNavigator();
-const Stack = createNativeStackNavigator();
+
 function TabGroup() {
     const [user, letUser] = useState(false);
 
@@ -25,7 +25,7 @@ function TabGroup() {
                 style: { backgroundColor: 'powderblue' },
             }}
         >
-            <Tab.Screen 
+            <Tab.Screen
                 name="Home" 
                 component={Home} 
                 options={{ 
