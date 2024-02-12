@@ -19,40 +19,67 @@ export default function Home() {
         loading ?
             <SafeAreaView>
                 <View>
-                    <Text>Loading afd</Text>
+                    <Text>Loading...</Text>
                 </View>
             </SafeAreaView> :
-            <SafeAreaView>
-                <View style={{ flex: 1, marginTop: 20 }}>
-                    <FlatList
-                        data={users}
-                        numColumns={2}
-                        columnWrapperStyle={{ gap: 10, paddingHorizontal: 12 }}
-                        contentContainerStyle={{ gap: 10, paddingBottom: 20 }}
-                        keyExtractor={(item, idx) => item.name + idx}
-                        showsVerticalScrollIndicator={false}
-                        renderItem={({ item }) => {
-                            console.log(item)
-                            return (
-                                <TouchableOpacity
-                                    style={{
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        flexDirection: "row",
-                                        backgroundColor: "#6b7280",
-                                        flex: 1,
-                                        height: 200,
-                                        borderRadius: 20,
-                                    }}
-                                >
-                                    <Text>{item.name}</Text>
-                                </TouchableOpacity>
-                            )
-                        }}
-                    />
-                </View>
-            </SafeAreaView>
+            <View style={{ flex: 1, marginTop: 20 }}>
+                <FlatList
+                    data={users}
+                    numColumns={2}
+                    columnWrapperStyle={{ gap: 10, paddingHorizontal: 12 }}
+                    contentContainerStyle={{ gap: 10, paddingBottom: 20 }}
+                    keyExtractor={(item, idx) => idx}
+                    showsVerticalScrollIndicator={false}
+                    renderItem={({ item }) => {
+                        return (
+                            // <Text>Hello</Text>
+                            <TouchableOpacity
+                                style={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    flexDirection: "row",
+                                    backgroundColor: "gray",
+                                    flex: 1,
+                                    height: 200,
+                                    borderRadius: 20,
+                                }}
+                            >
+                                <Text style={{ color: "white"}}>{item.name}</Text>
+                            </TouchableOpacity>
+                        )
+                    }}
+                    ListHeaderComponentStyle={{ marginVertical: 10 }}
+                    ListHeaderComponent={() => (
+                        <View>
+                            <FlatList 
+                                horizontal={true}
+                                style={{ paddingVertical: 5 }}
+                                showsHorizontalScrollIndicator={false}
+                                contentContainerStyle={{ gap: 10, paddingHorizontal: 12 }}
+                                data={users}
+                                keyExtractor={(user, index) => index}
+                                renderItem={({ item }) => (
+                                    <TouchableOpacity 
+                                        style={{
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            flexDirection: "row",
+                                            width: 300,
+                                            height: 200,
+                                            backgroundColor: "#fca5a5",
+                                            borderRadius: 20,
+                                        }}    
+                                    >
+                                        <Text>{item.name}</Text>
+                                    </TouchableOpacity>
+                                )}
+                            />
+                        </View>
+                    )}
+                />
+            </View>
 
     )
 }
